@@ -1,0 +1,24 @@
+Create hash table
+Create insert function
+Insert components
+	package ID number
+	delivery address
+	delivery deadline
+	delivery city
+	delivery zip code
+	package weight
+	delivery status (e.g., delivered, en route)
+Import data from CSV into hash table
+
+Create look-up function
+Look-up components
+	package ID number
+	delivery address
+	delivery deadline
+	delivery city
+	delivery zip code
+	package weight
+	delivery status (i.e., "at the hub", "en route", or "delivered"), including delivery time
+Return all components for a given package ID number
+
+Deliver packages
