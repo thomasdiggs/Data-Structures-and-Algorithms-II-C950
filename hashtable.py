@@ -37,18 +37,7 @@ class ChainingHashTable:
             if key_value[0] == key:
                 # if found return the key's value that is in the bucket list.
                 # return after calling the getter function for the value in bucket list.
-                return key_value[1].get_properties()
+                return key_value[1]
 
         # the key is not found.
         return None
-
-    # Removes an item with matching key from the hash table.
-    def remove(self, key):
-        # get the bucket list where this item will be removed from.
-        bucket = hash(key) % len(self.table)
-        bucket_list = self.table[bucket]
-
-        # remove the item from the bucket list if it is present.
-        for kv in bucket_list:
-            if kv[0] == key:
-                bucket_list.remove([kv[0], kv[1]])
