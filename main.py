@@ -1,10 +1,17 @@
 # Thomas Diggs 010815435
 
+import csv
 import packages
 
 
 class Main:
-    pid1 = packages.Package(1, "195 W Oakland Ave", "Salt Lake City", "UT", 84115, 1030, 21)
+    with open('packages.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        packageList = []
+        for row in csv_reader:
+            packageList.append(row)
+        for i in range(len(packageList)):
+            print(packageList[i])
 
-    print(pid1.address)
-    print(pid1.status)
+
+    print(type(packageList[0][0]))
