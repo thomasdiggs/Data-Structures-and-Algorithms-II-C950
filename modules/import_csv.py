@@ -1,9 +1,14 @@
 import csv
 from modules.packages import *
+from modules.hash_table import *
+
+hash_table = ChainingHashTable()
+address_data = []
+distance_data = []
 
 
 # parse the packages csv file
-def import_packages(filename, hash_table):
+def import_packages(filename):
     with open(filename) as csv_file:
         reader = csv.reader(csv_file, delimiter=",")
         # loop through each row in the csv file
@@ -26,7 +31,9 @@ def import_distances(filename):
     with open(filename) as csv_file:
         reader = csv.reader(csv_file, delimiter=",")
         # store each row from csv file into distance_data list
-        distance_data = list(reader)
+        # O(n)
+        for row in reader:
+            distance_data.append(row)
         # iterate over the rows and columns to fill in the missing values from the csv
         # this creates a complete distance table
         # O(n^2)
@@ -40,7 +47,6 @@ def import_distances(filename):
 def import_addresses(filename):
     with open(filename) as csv_file:
         reader = csv.reader(csv_file, delimiter=",")
-        address_data = []
         # loop through each row in the csv file
         # O(n)
         for row in reader:
