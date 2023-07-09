@@ -36,7 +36,8 @@ class ChainingHashTable:
         for key_value in bucket_list:
             if key_value[0] == key:
                 # if found return the key's value that is in the bucket list.
-                return key_value[1]
+                # return after calling the getter function for the value in bucket list.
+                return key_value[1].get_properties()
 
         # the key is not found.
         return None
