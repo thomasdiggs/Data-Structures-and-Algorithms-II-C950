@@ -16,6 +16,3 @@ class Main:
 
     for element in package_list:
         my_hash.insert(element[0], element[1])
-    print(my_hash.table)
-
-    print(my_hash.search("35"))
