@@ -1,17 +1,21 @@
 # Thomas Diggs 010815435
 
 import csv
-import packages
+from hashtable import ChainingHashTable
 
 
 class Main:
     with open('packages.csv') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        packageList = []
-        for row in csv_reader:
-            packageList.append(row)
-        for i in range(len(packageList)):
-            print(packageList[i])
+        reader = csv.reader(csv_file, delimiter=',')
+        package_list = []
+        for row in reader:
+            package_list.append(row)
 
+    # Instantiate the class ChainingHashTable
+    my_hash = ChainingHashTable()
 
-    print(type(packageList[0][0]))
+    for element in package_list:
+        my_hash.insert(element[0], element[1])
+    print(my_hash.table)
+
+    print(my_hash.search("35"))
