@@ -2,6 +2,7 @@ import csv
 from modules.packages import *
 from modules.hash_table import *
 
+# instantiate the class ChainingHashTable
 hash_table = ChainingHashTable()
 address_data = []
 distance_data = []

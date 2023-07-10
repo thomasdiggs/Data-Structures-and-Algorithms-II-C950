@@ -7,9 +7,6 @@ from modules.delivery import *
 
 
 class Main:
-    # instantiate the class ChainingHashTable
-    # hash_table = ChainingHashTable()
-
     # begin calling import functions from the import-csv.py module
     # import package objects into the newly created hash_table
     import_packages("csv_files/packages.csv")

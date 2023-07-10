@@ -10,6 +10,7 @@ class Package:
         self.deadline = deadline
         self.weight = weight
         self.status = "at the hub"
+        self.delivery_time = "00:00:00"
 
     # method to be called on any package object within hash table
     # this prints a human-readable string of package information
