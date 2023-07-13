@@ -4,8 +4,8 @@ from modules.hash_table import *
 
 # instantiate the class ChainingHashTable
 hash_table = ChainingHashTable()
-address_data = []
 distance_data = []
+address_data = []
 
 
 # parse the packages csv file
@@ -23,8 +23,9 @@ def import_packages(filename):
             zip_code = int(row[4])
             deadline = row[5]
             weight = int(row[6])
+            notes = row[7]
             # insert package id as an integer for the key and a package object as the value
-            hash_table.insert(pid, Package(pid, address, city, state, zip_code, deadline, weight))
+            hash_table.insert(pid, Package(pid, address, city, state, zip_code, deadline, weight, notes))
 
 
 # parse the distance csv file
@@ -41,7 +42,7 @@ def import_distances(filename):
         for i in range(len(distance_data)):
             for j in range(len(distance_data)):
                 distance_data[i][j] = distance_data[j][i]
-        return distance_data
+        # return distance_data
 
 
 # parse the address csv file
@@ -53,4 +54,4 @@ def import_addresses(filename):
         for row in reader:
             # append only the address (element 3, index 2) to the list
             address_data.append(row[2])
-        return address_data
+        # return address_data

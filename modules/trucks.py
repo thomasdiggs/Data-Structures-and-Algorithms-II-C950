@@ -3,5 +3,8 @@ class Truck:
         self.capacity = 16
         self.speed = 18
         self.miles_traveled = 0
-        self.packages = packages
-        self.current_address = "4001 South 700 East"
+        self.not_delivered = packages
+        self.delivered = []
+        self.start_address = "4001 South 700 East"
+        self.current_address = self.start_address
+        self.end_address = "4001 South 700 East"

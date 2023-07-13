@@ -18,5 +18,11 @@ class Main:
     # distance_data[2][6] is the same as distance_data[6][2]
     import_distances("csv_files/distances.csv")
 
+    min_distance(truck_one)
+
+    # deliver(truck1)
+    # deliver(truck2)
+    # deliver(truck3)
+
     # Start of program's user interface
-    start_ui(hash_table)
+    # start_ui(hash_table, address_data, distance_data)
