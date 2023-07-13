@@ -27,14 +27,34 @@ def min_distance(truck):
     for element in truck.not_delivered:
         dist = distance_between(truck.current_address, hash_table.search(element).address)
         distances.append(float(dist))
+    minimum_distance = min(distances)
+    index_of_minimum = distances.index(minimum_distance)
     #     package_address = hash_table.search(element).address
     #     dist = distance_between(truck.start_address, package_address)
     #     package_list.append(dist)
     # float_package_list = list(map(float, package_list))
     # return min(float_package_list)
-    print(distances)
-    print(min(distances))
-    return min(distances)
+    # print(distances)
+    # print(min(distances))
+    # print(distances)
+    # print(index_of_minimum)
+    # print(minimum_distance)
+    return index_of_minimum, minimum_distance
+
 
 def delivery(truck):
-    
+    for element in truck.not_delivered:
+        while len(truck.not_delivered) > 0:
+            print(truck.not_delivered)
+            index_of_nearest, shortest_distance = min_distance(truck)
+            print(shortest_distance)
+            print(index_of_nearest)
+            truck.delivered.append(truck.not_delivered[index_of_nearest])
+            truck.not_delivered.remove(truck.not_delivered[index_of_nearest])
+            truck.miles_traveled += shortest_distance
+            print(truck.miles_traveled)
+            print(truck.not_delivered)
+            print(truck.delivered)
+            print("---")
+    print(truck.not_delivered)
+    print(truck.delivered)
