@@ -1,5 +1,10 @@
-def start_ui(hash_table, address_data, distance_data):
-    print("Western Governors University Parcel Service Program")
+from modules.delivery import *
+
+
+def start_ui():
+    print("Western Governors University Parcel Service Program\n")
+    total_distance = truck_two.miles_traveled + truck_two.miles_traveled + truck_three.miles_traveled
+    print("Total distance traveled for all trucks: {} miles".format(total_distance))
     print("\ntype an option to:")
     is_quit = True
     while is_quit:

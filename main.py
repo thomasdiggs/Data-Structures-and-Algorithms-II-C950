@@ -1,9 +1,7 @@
 # Name: Thomas Diggs
 # Student ID: 010815435
 
-from modules.import_csv import *
 from modules.menu import *
-from modules.delivery import *
 
 
 class Main:
@@ -19,6 +17,8 @@ class Main:
     import_distances("csv_files/distances.csv")
 
     delivery(truck_one)
+    delivery(truck_two)
+    delivery(truck_three)
 
     # Start of program's user interface
-    # start_ui(hash_table, address_data, distance_data)
+    start_ui()
