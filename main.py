@@ -1,10 +1,13 @@
 # Name: Thomas Diggs
 # Student ID: 010815435
+import datetime
 
 from modules.menu import *
 
 
 class Main:
+    print("Western Governors University Parcel Service Program\n")
+
     # begin calling import functions from the import-csv.py module
     # import package objects into the newly created hash_table
     import_packages("csv_files/packages.csv")
