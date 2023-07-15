@@ -9,6 +9,7 @@ def start_ui():
     is_quit = True
     while is_quit:
         print("\n[1] get package details")
+        print("[2] enter a time")
         print("[0] quit program")
         option = int(input("[?]: "))
         if option == 1:
@@ -17,5 +18,12 @@ def start_ui():
         elif option == 0:
             print("stay sweet parakeet")
             is_quit = False
+        elif option == 2:
+            lookup_time = input("Enter format, HH:MM")
+            h, m = lookup_time.split(":")
+            h = int(h)
+            m = int(m)
+            converted_time = datetime.time(hour=h, minute=m)
+            print(converted_time)
         else:
             print("invalid option")

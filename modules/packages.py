@@ -10,6 +10,8 @@ class Package:
         self.deadline = deadline
         self.weight = weight
         self.notes = notes
+        self.delivered_time = None
+        self.status = "at hub"
 
         # self.status = "at the hub"
         # self.delivery_time = "00:00:00"
@@ -17,10 +19,10 @@ class Package:
     # method to be called on any package object within hash table
     # this prints a human-readable string of package information
     def get_details(self):
-        return "Package ID: %s \t Address: %s \t City: %s \t State: %s \t " \
-               "Zip Code: %s \t Deadline: %s \t Weight(kg): %s \t Notes: %s" % (
-                self.pid, self.address, self.city, self.state,
-                self.zip_code, self.deadline, self.weight, self.notes)
+        return "Package ID: %s \t Address: %s \t City: %s \t State: %s \t Zip Code: %s " \
+               "\t Deadline: %s \t Weight(kg): %s \t Status: %s \t Delivered Time: %s \t Notes: %s " % (
+                self.pid, self.address, self.city, self.state, self.zip_code,
+                self.deadline, self.weight, self.status, self.delivered_time, self.notes)
 
     # CREATE AN UPDATE STATUS FUNCTION HERE
     # THIS FUNCTION WILL UPDATE FROM "at the hub" TO "en route" OR "delivered"
