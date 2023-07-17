@@ -4,9 +4,16 @@ from modules.trucks import *
 from modules.import_csv import *
 
 # manually loading trucks
-truck_one = Truck([13, 14, 15, 16, 19, 20, 1, 29, 30, 31, 34, 37, 40], datetime.timedelta(hours=8, minutes=0, seconds=0), "Truck One")
-truck_two = Truck([3, 6, 18, 25, 28, 32, 36, 38, 27, 35, 39], datetime.timedelta(hours=9, minutes=5, seconds=0), "Truck Two")
-truck_three = Truck([9, 2, 4, 5, 7, 8, 10, 11, 12, 17, 21, 22, 23, 24, 26, 33], datetime.timedelta(hours=10, minutes=20, seconds=0), "Truck Three")
+truck_one = Truck([13, 14, 15, 16, 19, 20, 1, 29, 30, 31, 34, 37, 40],
+                  datetime.timedelta(hours=8, minutes=0, seconds=0), "Truck One")
+truck_two = Truck([3, 6, 18, 25, 28, 32, 36, 38, 27, 35, 39], datetime.timedelta(hours=9, minutes=5, seconds=0),
+                  "Truck Two")
+truck_three = Truck([9, 2, 4, 5, 7, 8, 10, 11, 12, 17, 21, 22, 23, 24, 26, 33],
+                    datetime.timedelta(hours=10, minutes=20, seconds=0), "Truck Three")
+
+
+def address_lookup(address):
+    return address_data.index(address)
 
 
 def distance_between(address1, address2):
@@ -47,7 +54,8 @@ def delivery(truck):
         truck.delivered.append(truck.not_delivered[index_of_nearest])
         truck.not_delivered.remove(truck.not_delivered[index_of_nearest])
     # add mileage from last package on truck back to the hub
-    dist_back_to_hub = distance_between(hash_table.search(truck.delivered[len(truck.delivered) - 1]).address, truck.end_address)
+    dist_back_to_hub = distance_between(hash_table.search(truck.delivered[len(truck.delivered) - 1]).address,
+                                        truck.end_address)
     truck.miles_traveled += dist_back_to_hub
     truck.miles_traveled = round(truck.miles_traveled, 1)
     truck.current_time += datetime.timedelta(hours=dist_back_to_hub / 18)

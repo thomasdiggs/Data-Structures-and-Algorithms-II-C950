@@ -2,7 +2,6 @@ import csv
 from modules.packages import *
 from modules.hash_table import *
 
-# instantiate the class ChainingHashTable
 hash_table = ChainingHashTable()
 distance_data = []
 address_data = []
@@ -42,7 +41,6 @@ def import_distances(filename):
         for i in range(len(distance_data)):
             for j in range(len(distance_data)):
                 distance_data[i][j] = distance_data[j][i]
-        # return distance_data
 
 
 # parse the address csv file
@@ -54,4 +52,3 @@ def import_addresses(filename):
         for row in reader:
             # append only the address (element 3, index 2) to the list
             address_data.append(row[2])
-        # return address_data

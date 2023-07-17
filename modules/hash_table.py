@@ -1,3 +1,15 @@
+# D. Identify a self-adjusting data structure, such as a hash table, that can be used with the algorithm
+# identified in part A to store the package data. 1. Explain how your data structure accounts for the relationship
+# between the data points you are storing.
+# Note: Use only appropriate built-in data structures, except dictionaries. You must design, write, implement,
+# and debug all code that you turn in for this assessment. Code downloaded from the Internet or acquired from
+# another student or any other source may not be submitted and will result in automatic failure of this assessment.
+
+# E. Develop a hash table, without using any additional libraries or classes, that has an insertion function that
+# takes the following components as input and inserts the components into the hash table:
+# packageIDnumber, deliveryaddress, deliverydeadline, deliverycity, deliveryzipcode, packageweight,
+# deliverystatus(e.g., delivered, enroute)
+
 # HashTable class using chaining.
 class ChainingHashTable:
     # Constructor with optional initial capacity parameter.
