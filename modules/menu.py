@@ -27,7 +27,7 @@ def start_ui():
             elif option == 1:
                 try:
                     lookup_id = int(input("enter package ID: "))
-                    print(hash_table.search(lookup_id).get_details() + "Notes: " + hash_table.search(lookup_id).notes)
+                    print(hash_table.search(lookup_id).get_details_after_delivery() + "Notes: " + hash_table.search(lookup_id).notes)
                 except:
                     print("Invalid input, try again")
             elif option == 2:
@@ -45,7 +45,7 @@ def start_ui():
                     print("Invalid input, try again")
             elif option == 3:
                 for element in range(1, 41):
-                    print(hash_table.search(element).get_details() + "Notes: " + hash_table.search(element).notes)
+                    print(hash_table.search(element).get_details_after_delivery() + "Notes: " + hash_table.search(element).notes)
             elif option == 4:
                 try:
                     lookup_time = input("enter time with format, HH:MM:SS: ")
