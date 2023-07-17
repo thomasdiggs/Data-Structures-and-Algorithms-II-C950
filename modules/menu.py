@@ -1,6 +1,14 @@
 from modules.delivery import *
 
 
+def convert_time(user_time):
+    (h, m, s) = user_time.split(":")
+    h = int(h)
+    m = int(m)
+    s = int(s)
+    return datetime.timedelta(hours=h, minutes=m, seconds=s)
+
+
 def start_ui():
     total_distance = truck_two.miles_traveled + truck_two.miles_traveled + truck_three.miles_traveled
     rounded_total_distance = round(total_distance, 1)
@@ -37,10 +45,11 @@ def start_ui():
                     h = int(h)
                     m = int(m)
                     s = int(s)
-                    converted_time = datetime.timedelta(hours=h, minutes=m, seconds=s)
-                    lookup_id = int(input("enter package ID: "))
+                    # converted_time = datetime.timedelta(hours=h, minutes=m, seconds=s)
+                    # lookup_id = int(input("enter package ID: "))
                     package = hash_table.search(lookup_id)
-                    print(package.get_status(converted_time))
+                    # print(package.get_status(converted_time))
+                    print(package.get_details(converted_time))
                 except:
                     print("Invalid input, try again")
             elif option == 3:
@@ -48,15 +57,18 @@ def start_ui():
                     print(hash_table.search(element).get_details_after_delivery() + "Notes: " + hash_table.search(element).notes)
             elif option == 4:
                 try:
-                    lookup_time = input("enter time with format, HH:MM:SS: ")
-                    (h, m, s) = lookup_time.split(":")
-                    h = int(h)
-                    m = int(m)
-                    s = int(s)
-                    converted_time = datetime.timedelta(hours=h, minutes=m, seconds=s)
+                    user_time = input("enter time with format, HH:MM:SS: ")
+                    converted_time = convert_time(user_time)
+                    # lookup_time = input("enter time with format, HH:MM:SS: ")
+                    # (h, m, s) = lookup_time.split(":")
+                    # h = int(h)
+                    # m = int(m)
+                    # s = int(s)
+                    # converted_time = datetime.timedelta(hours=h, minutes=m, seconds=s)
                     for element in range(1, 41):
-                        print(hash_table.search(element).get_details_at_time() + hash_table.search(element).get_status(
-                            converted_time))
+                        package = hash_table.search(element)
+                        # print(hash_table.search(element).get_details_at_time() + hash_table.search(element).get_status(converted_time))
+                        print(package.get_details(converted_time))
                 except:
                     print("Invalid input, try again")
             else:
