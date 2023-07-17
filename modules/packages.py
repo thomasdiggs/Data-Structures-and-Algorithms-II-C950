@@ -1,3 +1,4 @@
+# class to create package objects
 class Package:
     def __init__(self, pid, address, city, state, zip_code, deadline, weight, notes):
         self.pid = pid

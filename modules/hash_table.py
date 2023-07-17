@@ -17,6 +17,7 @@ class ChainingHashTable:
     def __init__(self, initial_capacity=10):
         # initialize the hash table with empty bucket list entries.
         self.table = []
+        # O(n)
         for i in range(initial_capacity):
             self.table.append([])
 
@@ -27,6 +28,7 @@ class ChainingHashTable:
         bucket_list = self.table[bucket]
 
         # update key if it is already in the bucket.
+        # O(n)
         for kv in bucket_list:
             if kv[0] == key:
                 kv[1] = item
@@ -45,6 +47,7 @@ class ChainingHashTable:
         bucket_list = self.table[bucket]
 
         # search for the key in the bucket list
+        # O(n)
         for key_value in bucket_list:
             if key_value[0] == key:
                 # if found return the key's value that is in the bucket list.
