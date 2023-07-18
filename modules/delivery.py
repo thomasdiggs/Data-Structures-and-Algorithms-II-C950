@@ -13,27 +13,35 @@ truck_three = Truck([9, 2, 4, 5, 7, 8, 10, 11, 12, 17, 21, 22, 23, 24, 26, 33],
 
 
 # function to return the index of an address from the address table
-# O(n)
+# O(1)
 def address_lookup(address):
     return address_data.index(address)
 
 
 # function to return the distance between two addresses based on the distance table
+# O(1)
 def distance_between(address1, address2):
-    return float(distance_data[address_data.index(address1)][address_data.index(address2)])
+    return float(distance_data[address_lookup(address1)][address_lookup(address2)])
 
 
+# function to return the minimum value in an array
+# O(n)
 def min_distance(truck):
     distances = []
+    # loop through elements in truck's array of packages not delivered
     for element in truck.not_delivered:
+        # find the distance between the truck's current address and every other element in the array
         dist = distance_between(truck.current_address, hash_table.search(element).address)
+        # add that distance in miles to the distances array
         distances.append(float(dist))
+    # find the minimum value in the array of distances
     minimum_distance = min(distances)
+    # find the index of the next closest address
     index_of_minimum = distances.index(minimum_distance)
     return index_of_minimum, minimum_distance
 
 
-# algorithm used for delivery can be defined as a Nearest Neighbor algorithim
+# algorithm used for delivery can be defined as a Nearest Neighbor algorithm
 def delivery(truck):
     # set packages in truck as en route
     # O(n)
@@ -42,6 +50,7 @@ def delivery(truck):
         hash_table.search(element).departure_time = truck.depart_time
         truck.current_time = truck.depart_time
     # loop through every package on the truck in the not_delivered array
+    # O(n)
     while len(truck.not_delivered) > 0:
         # find the shortest distance from current_address of truck to any package
         index_of_nearest, shortest_distance = min_distance(truck)
@@ -50,7 +59,6 @@ def delivery(truck):
         truck.miles_traveled += shortest_distance
         # update current time as each package is delivered
         truck.current_time += datetime.timedelta(hours=shortest_distance / 18)
-        hash_table.search(truck.not_delivered[index_of_nearest]).delivered_time = truck.current_time
         # mark package as delivered
         hash_table.search(truck.not_delivered[index_of_nearest]).status = "delivered"
         hash_table.search(truck.not_delivered[index_of_nearest]).delivered_time = truck.current_time
